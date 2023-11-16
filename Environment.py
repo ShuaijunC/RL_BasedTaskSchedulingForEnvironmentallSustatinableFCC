@@ -120,7 +120,6 @@ class FederationCloudAndTaskEnv(gym.Env):
             current_data_centre_machine_status, self.watermark = update_watermark(self.data_centre_machine_status, self.watermark_increase_rate)
             self.makespan += self.watermark
             idle_time = process_extra_idle_time(current_data_centre_machine_status)
-            writer_result(ct.DELAY_TIME,idle_time)
             self.computer_energy_emission(current_data_centre_machine_status, idle_time)
             self.data_centre_machine_status = (current_data_centre_machine_status > 0) * np.abs(current_data_centre_machine_status)
             if np.size(self.current_job_info) == 0:

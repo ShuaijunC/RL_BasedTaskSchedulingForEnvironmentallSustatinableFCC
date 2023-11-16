@@ -86,7 +86,6 @@ class RoundRobinDistribution:
         current_machine_home = self.data_centre_machine_status[self.current_data_centre_num][self.current_machine_home_num]
         key = str(self.current_data_centre_num) + '_' + str(self.current_machine_home_num)
         data_center_machine_room_status, self.data_centre_machine_process_state, self.data_centre_machine_idle_state, lazy = heft_update(self.data_centre_machine_process_state, self.data_centre_machine_idle_state, current_machine_home, job_info_list, key)
-        writer_result(ct.ROUND_ROBIN_TIME, lazy)
         self.data_centre_machine_status[self.current_data_centre_num][self.current_machine_home_num] = data_center_machine_room_status
 
     def computer_energy_emission(self, current_data_centre_machine_status, extra_idle_time):
